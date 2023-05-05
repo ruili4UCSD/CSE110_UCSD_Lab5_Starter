@@ -17,23 +17,70 @@ function init() {
   // party-hore audio path: ../audio/party-horn.mp3
   
   // change img when user choose different type of horn:
-  const hornImage = document.querySelector('img[alt="No image selected"]');
+  
+  // horn image and selector
   const hornSelect = document.getElementById('horn-select');
+  const hornImage = document.querySelector('img[alt="No image selected"]');
+  // audio type and volume
+  const hornAudio = document.querySelector('.hidden');
+  const audioVolume = document.querySelector('#volume');
+  const audioImage = document.querySelector('img[alt="Volume level 2"]');
+  // button
+  const playButton = document.querySelector('button');
+  // party horn checker
+  let partyHorn = false;
+  const jsConfetti = new JSConfetti();
+
 
   hornSelect.addEventListener('change', (event) => {
-    const selectedHorn = event.target.value;
-    switch (selectedHorn) {
+    // change horn image
+    let hornType = event.target.value;
+    switch (hornType) {
       case 'air-horn':
         hornImage.src = 'assets/images/air-horn.svg';
+        hornAudio.src = "assets/audio/air-horn.mp3";
+        partyHorn = false;
         break;
       case 'car-horn':
         hornImage.src = 'assets/images/car-horn.svg';
+        hornAudio.src = "assets/audio/car-horn.mp3";
+        partyHorn = false;
         break;
       case 'party-horn':
         hornImage.src = 'assets/images/party-horn.svg';
+        hornAudio.src = "assets/audio/party-horn.mp3";
+        partyHorn = true;
         break;
       default:
         hornImage.src = 'assets/images/no-image.png';
+        hornAudio.src = "";
+    }
+  });
+
+  //change volume
+  audioVolume.addEventListener('input', (event) => {
+    let volume = event.target.value;
+    hornAudio.volume = volume / 100;
+    switch (true) {
+      case (volume == 0):
+        audioImage.src = 'assets/icons/volume-level-0.svg';
+        break;
+      case (volume < 33):
+        audioImage.src = 'assets/icons/volume-level-1.svg';
+        break;
+      case (volume < 67):
+        audioImage.src = 'assets/icons/volume-level-2.svg';
+        break;
+      default:
+        audioImage.src = 'assets/icons/volume-level-3.svg';
+    }
+  });
+
+  //play audio
+  playButton.addEventListener('click', () => {
+    hornAudio.play();
+    if (partyHorn == true){
+      jsConfetti.addConfetti();
     }
   });
 
