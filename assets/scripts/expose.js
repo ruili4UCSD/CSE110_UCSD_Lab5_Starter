@@ -3,18 +3,18 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  // air-hore image path: ../images/air-horn.svg
-  // car-hore image path: ../images/car-horn.svg
-  // party-hore image path: ../images/party-horn.svg
+  // air-hore image path: assets/images/air-horn.svg
+  // car-hore image path: assets/images/car-horn.svg
+  // party-hore image path: assets/images/party-horn.svg
 
-  // volum level 0 img : ../icons/volumn-level-0.svg
-  // volum level 1 img : ../icons/volumn-level-1.svg
-  // volum level 2 img : ../icons/volumn-level-2.svg
-  // volum level 3 img : ../icons/volumn-level-3.svg
+  // volum level 0 img : assets/icons/volumn-level-0.svg
+  // volum level 1 img : assets/icons/volumn-level-1.svg
+  // volum level 2 img : assets/icons/volumn-level-2.svg
+  // volum level 3 img : assets/icons/volumn-level-3.svg
 
-  // air-hore audio path: ../audio/air-horn.mp3
-  // car-hore audio path: ../audio/car-horn.mp3
-  // party-hore audio path: ../audio/party-horn.mp3
+  // air-hore audio path: assets/audio/air-horn.mp3
+  // car-hore audio path: assets/audio/car-horn.mp3
+  // party-hore audio path: assets/audio/party-horn.mp3
   
   // change img when user choose different type of horn:
   
